@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const isUndefined = (obj: any) => (obj === 0 ? false : !obj);
+export const isUndefined = (obj: unknown) => (obj === 0 ? false : !obj);
 export const cleanObject = (object: any) => {
   const res = { ...object };
   Object.keys(res).forEach((key) => {
@@ -17,7 +17,7 @@ export const useMount = (callback: () => void) => {
   }, []);
 };
 
-export const useDebounce = (value: any, delay?: number) => {
+export const useDebounce = <V>(value: V, delay?: number): V => {
   const [params, setParams] = useState<typeof value>(value);
 
   useEffect(() => {

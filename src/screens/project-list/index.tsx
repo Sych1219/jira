@@ -5,13 +5,17 @@ import { cleanObject, useDebounce, useMount } from "../../utils";
 import qs from "qs";
 
 const apiUrl = process.env.REACT_APP_API_URL;
+export interface Param {
+  name: string;
+  personId: string;
+}
 export const ProjectListScreen = () => {
-  const [param, setParam] = useState({
+  const [param, setParam] = useState<Param>({
     name: "",
     personId: "",
   });
 
-  const debounceParam = useDebounce(param, 200);
+  const debounceParam = useDebounce<Param>(param, 200);
   const [users, setUsers] = useState([]);
   const [list, setList] = useState([]);
 
