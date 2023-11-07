@@ -1,6 +1,4 @@
 export const List = ({ list, users }) => {
-  console.log("list", list);
-  console.log("users", users);
   return (
     <table>
       <thead>
@@ -10,7 +8,7 @@ export const List = ({ list, users }) => {
         </tr>
       </thead>
       <tbody>
-        {list?.map((project, index) => (
+        {list.map((project, index) => (
           <tr key={project.id}>
             <td>{project.name}</td>
             <td>

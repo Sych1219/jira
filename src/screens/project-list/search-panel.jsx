@@ -6,12 +6,13 @@ export const SearchPanel = ({ param, setParam, users }) => {
         <input
           type={"text"}
           value={param.name}
-          onChange={(event) =>
+          onChange={(event) => {
+            console.log("input eve", param, event.target.value);
             setParam({
               ...param,
               name: event.target.value,
-            })
-          }
+            });
+          }}
         />
         <select
           value={param.personId}
@@ -24,7 +25,7 @@ export const SearchPanel = ({ param, setParam, users }) => {
           }}
         >
           <option value={""}>负责人</option>
-          {users?.map((user, index) => (
+          {users.map((user, index) => (
             <option key={index} value={user.id}>
               {user.name}
             </option>
